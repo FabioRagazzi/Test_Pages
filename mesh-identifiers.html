@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesh identifiers · Merlino2D User Manual</title>
+<meta name="description" content="How boundaries and subdomains of a Gmsh mesh are labelled for Merlino2D.">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="mesh-identifiers.html">
+<header class="topbar"><a href="index.html">Merlino2D</a><button id="menu-btn" type="button" aria-expanded="false" aria-controls="sidebar">Menu</button></header>
+<div class="layout">
+<aside id="sidebar" aria-label="Site navigation"><noscript><a href="index.html">Introduction</a></noscript></aside>
+<main id="content">
+<h1>Numerical identifiers of the mesh</h1>
+<figure><svg viewBox="0 0 466 408" width="466" role="img" aria-labelledby="mesh-t mesh-d" xmlns="http://www.w3.org/2000/svg" style="color:var(--ink)">
+<title id="mesh-t">Example domain with numerical identifiers</title>
+<desc id="mesh-d">A rectangular domain with a solid dielectric region (identifier 2) at the bottom and a gas region (identifier 1) above it, separated by a dielectric interface drawn in yellow. A rounded electrode sits on the left at the dielectric surface. The electrode boundary is red (identifier 1), the bottom boundary blue (identifier 2), and the remaining left, top and right boundaries green (identifier 3).</desc>
+<defs><marker id="h-437939" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#437939"/></marker><marker id="h-1f5fe0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fe0"/></marker><marker id="h-d6221f" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#d6221f"/></marker></defs>
+<rect x="28.8" y="230.4" width="408.0" height="96.0" fill="#abfaba" stroke="#14233a" stroke-width="0.8"/>
+<path d="M 172.8 230.4 L 172.8 216.0 A 9.600000000000001 9.600000000000001 0 0 0 163.2 206.4 L 28.8 206.4 L 28.8 86.4 L 436.8 86.4 L 436.8 230.4 Z" fill="#cdf5fd" stroke="#14233a" stroke-width="0.8"/>
+<path d="M 28.8 326.4 L 28.8 230.4" stroke="#437939" stroke-width="4.5" fill="none"/>
+<path d="M 28.8 206.4 L 28.8 86.4 L 436.8 86.4 L 436.8 326.4" stroke="#437939" stroke-width="4.5" fill="none" stroke-linejoin="round"/>
+<path d="M 28.8 230.4 L 172.8 230.4 L 172.8 216.0 A 9.600000000000001 9.600000000000001 0 0 0 163.2 206.4 L 28.8 206.4" stroke="#d6221f" stroke-width="4.5" fill="none" stroke-linejoin="round"/>
+<path d="M 28.8 326.4 L 436.8 326.4" stroke="#1f5fe0" stroke-width="4.5" fill="none"/>
+<path d="M 172.8 230.4 L 436.8 230.4" stroke="#e6b800" stroke-width="4.5" fill="none"/>
+<line x1="232.8" y1="38.4" x2="232.8" y2="86.4" stroke="#437939" stroke-width="3.5" marker-end="url(#h-437939)"/><text class="lbl" x="232.8" y="24.0" text-anchor="middle" dominant-baseline="middle">3</text>
+<line x1="232.8" y1="374.4" x2="232.8" y2="326.4" stroke="#1f5fe0" stroke-width="3.5" marker-end="url(#h-1f5fe0)"/><text class="lbl" x="232.8" y="391.2" text-anchor="middle" dominant-baseline="middle">2</text>
+<line x1="100.8" y1="134.4" x2="100.8" y2="206.4" stroke="#d6221f" stroke-width="3.5" marker-end="url(#h-d6221f)"/><text class="lbl" x="100.8" y="120.0" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="404.4" y="242.4" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2"/><text class="lbl" x="416.4" y="254.4" text-anchor="middle" dominant-baseline="middle">2</text><rect x="404.4" y="98.4" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2"/><text class="lbl" x="416.4" y="110.4" text-anchor="middle" dominant-baseline="middle">1</text>
+</svg><figcaption>Example domain. Plain numbers on the arrows label external boundaries (BoundaryIDs); boxed numbers label subdomains (SurfaceIDs). The yellow line is the dielectric interface.</figcaption></figure>
+<p>Let us consider an example domain composed of a <span class="chip air">gas region</span> (above the yellow line) and a <span class="chip diel">solid dielectric region</span> (below the yellow line), separated by a dielectric interface (the yellow line). Suppose that the user intends to apply three different boundary conditions to the regions highlighted in <span class="c-red">red</span>, <span class="c-blue">blue</span>, and <span class="c-green">green</span>.</p>
+<p>When generating a mesh to use in Merlino2D, each external boundary where a distinct boundary condition is required must be assigned a unique numerical identifier. For instance, in this case, the three external regions can be labeled with the identifiers <span class="c-red">1</span>, <span class="c-blue">2</span>, and <span class="c-green">3</span>, respectively. These identifiers are defined in the <strong>.geo</strong> file using the <code class="m">Physical Curve</code> command.</p>
+<p>Similarly, each subdomain corresponding to a different relative permittivity value \(\varepsilon_r\) must be assigned a unique identifier. In the present example, the gas and solid dielectric regions are labeled as <span class="chip air">1</span> and <span class="chip diel">2</span>, respectively. These identifiers are defined in the <strong>.geo</strong> file using the <code class="m">Physical Surface</code> command.</p>
+<div class="note"><p>Merlino2D treats as gas <strong>only regions with a surface identifier equal to 1</strong>, whereas all regions assigned a numerical identifier greater than 1 are interpreted as solid dielectric materials.</p></div>
+<div class="note"><p>Merlino2D identifies as dielectric interfaces <strong>only lines assigned a numerical identifier greater than or equal to 1000</strong>. For this reason, in the <strong>.geo</strong> file, the yellow line can be labeled, for example, with the identifier 1005 using the <code class="m">Physical Curve</code> command.</p></div>
+<p>In general, a mesh provided as input to Merlino2D includes identifiers for the external boundaries, hereafter referred to as <strong>BoundaryIDs</strong> (<span class="c-red">1</span>, <span class="c-blue">2</span>, and <span class="c-green">3</span> in the previous example), as well as identifiers for the subdomains, hereafter referred to as <strong>SurfaceIDs</strong> (<span class="chip air">1</span> and <span class="chip diel">2</span> in the previous example).</p>
+<div class="pager" id="pager"></div>
+<footer class="site">Merlino2D User Manual by Fabio Ragazzi. Source code: <a href="https://github.com/PTL-Unibo/Merlino2D">github.com/PTL-Unibo/Merlino2D</a></footer>
+</main>
+</div>
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/auto-render.min.js"></script>
+<script defer src="assets/site.js"></script>
+</body>
+</html>

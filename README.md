@@ -1,41 +1,17 @@
-# Tidewatch docs (demo site)
+# Merlino2D manual (website)
 
-A small, static documentation site for a fictional Python library. Use it to see how GitHub Pages works.
-
-## Files
-
-```
-index.html            Overview page
-getting-started.html  Install and first task
-api-reference.html    Classes, functions, options
-changelog.html        Release notes
-assets/style.css      All styling (light and dark mode)
-assets/site.js        Copy buttons, sidebar filter, mobile menu
-.nojekyll             Tells GitHub Pages to serve files as-is
-```
+Static website version of `user_manual.tex`. No build step.
 
 ## Preview locally
+    python3 -m http.server 8000
+then open http://localhost:8000
 
-```bash
-python3 -m http.server 8000
-```
+## Publish
+Settings -> Pages -> Deploy from a branch -> branch `main`, folder `/docs`.
 
-Then open http://localhost:8000.
-
-## Publish on GitHub Pages
-
-1. Create a new repository on GitHub (public, for the free plan).
-2. Upload these files to the repository root (or put them in a `docs/` folder).
-3. Go to **Settings -> Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch `main` and folder `/ (root)` (or `/docs`), then **Save**.
-6. Wait a minute or two. Your site appears at
-   `https://YOUR-USERNAME.github.io/YOUR-REPO/`.
-
-## Try editing it
-
-Change some text in `getting-started.html`, commit, and push. GitHub Pages republishes automatically within a minute or two.
-
-## Next steps
-
-This demo is hand-written HTML. For a real project, write Markdown and let a generator build the HTML. MkDocs Material, Docusaurus, and VitePress all work with GitHub Pages through a GitHub Actions workflow.
+## Editing
+- Text: edit the `.html` files directly (one per section of the manual).
+- Add a page: copy an existing `.html` file and add it to `PAGES` at the top of `assets/site.js`.
+- Colours and fonts: the `:root` block at the top of `assets/style.css`.
+- Maths uses KaTeX (bundled in `assets/vendor/katex`): write `\( ... \)` inline or `\[ ... \]` for display.
+- Parameter links: `<a class="param" href="input-parameters.html#bc-flag">BC_FLAG</a>`

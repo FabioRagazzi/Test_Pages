@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Basic workflow · Merlino2D User Manual</title>
+<meta name="description" content="The main Merlino2D functions: running, post-processing, plotting, saving and loading.">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="basic-workflow.html">
+<header class="topbar"><a href="index.html">Merlino2D</a><button id="menu-btn" type="button" aria-expanded="false" aria-controls="sidebar">Menu</button></header>
+<div class="layout">
+<aside id="sidebar" aria-label="Site navigation"><noscript><a href="index.html">Introduction</a></noscript></aside>
+<main id="content">
+<h1>Basic workflow</h1>
+<p>Every time you open MATLAB, to use the code you have to run the script <strong>init.m</strong> that is inside the main folder. You can do it by selecting the file and pressing <strong>F9</strong>, or typing in the Command Window</p>
+<pre><code class="language-matlab">&gt;&gt; init</code></pre>
+<p>This will add to the MATLAB path the folder <strong>src/</strong> that contains the code.</p>
+<h2 id="core-functions">The core functions</h2>
+<p>The core of the code is the function <code class="m">Merlino2D</code>. The syntax of the function is:</p>
+<pre><code class="language-matlab">out = Merlino2D(opts,"key1",value1,"key2",value2,...);</code></pre>
+<p><code class="m">opts</code> is a structure that contains the input parameters for the simulation. Some parameters have a default value that can be found inside <strong>DefaultMerlino2Dinput.m</strong>. The key-value arguments are optional and can be used to overwrite the parameters passed through <code class="m">opts</code>. See <a href="input-parameters.html">Input parameters</a> for the full list.</p>
+<p><code class="m">out</code> is the unprocessed output structure that is given in input to the <code class="m">PostProcessing</code> function to obtain the post-processed output structure <code class="m">out_pp</code>.</p>
+<pre><code class="language-matlab">out_pp = PostProcessing(out);</code></pre>
+<p><code class="m">out_pp</code> can be used to plot the results using the <code class="m">Plot</code> function.</p>
+<pre><code class="language-matlab">Plot(out_pp,"type",type_value);</code></pre>
+<p>To save the results of a simulation, use the <code class="m">Save</code> function.</p>
+<pre><code class="language-matlab">Save(out_pp,"my_result.mat");</code></pre>
+<p>To retrieve the results of a simulation that was previously saved, use the <code class="m">Load</code> function.</p>
+<pre><code class="language-matlab">out_pp = Load("my_result.mat");</code></pre>
+<p>It is also possible to export the results for visualization with Paraview using the <code class="m">ExportVTU</code> function.</p>
+<pre><code class="language-matlab">ExportVTU(out_pp,"my_results")</code></pre>
+<h2 id="post-processing">Post processing</h2>
+<p>There are two types of post processing, a lighter version and a more complete one. To select which version to use, you can give to the function the string <code class="m">"light"</code> or <code class="m">"full"</code> as the second argument (<code class="m">"light"</code> is the default).</p>
+<pre><code class="language-matlab">out_pp = PostProcessing(out,"light");
+out_pp = PostProcessing(out,"full");</code></pre>
+<p>The lighter version will generate an output structure that contains:</p>
+<ul><li>the simulation time instants</li><li>the number density of all the species at cells</li><li>the surface charge density at the dielectric interface (if a dielectric material exists inside the domain)</li><li>the electric potential at nodes</li><li>the electric field at cells</li><li>the charge density at cells</li><li>the current over time computed with Sato's equation</li><li>the applied voltage over time</li><li>information about chemical species</li><li>information about the mesh</li></ul>
+<p>The full version adds to the previous list:</p>
+<ul><li>the electric field at faces</li><li>the electric field at nodes</li><li>the number density of all the species at nodes</li><li>the charge density at nodes</li><li>the flux density at faces</li><li>the chemistry source term</li><li>the current over time computed integrating the current density at electrodes</li></ul>
+<h2 id="plot">Plot</h2>
+<p>The <code class="m">Plot</code> function can plot several output quantities and will return the axes object <code class="m">ax</code>, containing the plot. It is possible to specify which type of plot to generate with the key-value argument <code class="m">"type"</code>.</p>
+<pre><code class="language-matlab">ax = Plot(out_pp,"type",&lt;type_value&gt;);</code></pre>
+<p><code class="m">&lt;type_value&gt;</code> needs to be a string. The available options are:</p>
+<div class='table-wrap'><table><thead><tr><th>Value</th><th>Plots</th></tr></thead><tbody><tr><td><code class="m">"nc"</code></td><td>the species number density at cells</td></tr><tr><td><code class="m">"nn"</code></td><td>the species number density at nodes</td></tr><tr><td><code class="m">"rhoc"</code></td><td>the charge density at cells</td></tr><tr><td><code class="m">"rhon"</code></td><td>the charge density at nodes</td></tr><tr><td><code class="m">"phi"</code></td><td>the electric potential at nodes</td></tr><tr><td><code class="m">"v-i"</code></td><td>the v-i characteristic</td></tr><tr><td><code class="m">"Ec"</code></td><td>the electric field at cells</td></tr><tr><td><code class="m">"|Ec|"</code></td><td>the electric field module at cells</td></tr><tr><td><code class="m">"|En|"</code></td><td>the electric field module at nodes</td></tr><tr><td><code class="m">"t-iv"</code></td><td>the current and voltage over time (in a single plot)</td></tr><tr><td><code class="m">"t-Fx"</code></td><td>the force along x over time</td></tr><tr><td><code class="m">"fxc"</code></td><td>the force density along x at cells</td></tr><tr><td><code class="m">"fxc_log"</code></td><td>the force density along x at cells in log scale</td></tr><tr><td><code class="m">"fxn"</code></td><td>the force density along x at nodes</td></tr><tr><td><code class="m">"fxn_log"</code></td><td>the force density along x at nodes in log scale</td></tr><tr><td><code class="m">"rhon_log"</code></td><td>the charge density at nodes in log scale</td></tr><tr><td><code class="m">"sigma"</code></td><td>the surface charge density</td></tr><tr><td><code class="m">"sph"</code></td><td>the photoionization source term</td></tr><tr><td><code class="m">"msh"</code></td><td>only the used mesh</td></tr></tbody></table></div>
+<p>It is possible to pass to the <code class="m">Plot</code> function other key-value arguments. The available keys are:</p>
+<div class='table-wrap'><table><thead><tr><th>Key</th><th>Meaning</th></tr></thead><tbody><tr><td><code class="m">"ax"</code></td><td>allows to pass the desired axes object to display the plot</td></tr><tr><td><code class="m">"species_index"</code></td><td>index of the chemical species to plot</td></tr><tr><td><code class="m">"k"</code></td><td>index of the time instant to display</td></tr><tr><td><code class="m">"flip_y"</code></td><td>if equal to 1, plots also the symmetry of the domain with respect to the \(x\)-axis (for 2D color plots) and also <strong>doubles the current</strong></td></tr><tr><td><code class="m">"log10_zero_val"</code></td><td>for log scale plots sets the threshold under which everything is considered to be zero</td></tr></tbody></table></div>
+<h2 id="save">Save</h2>
+<p>The <code class="m">Save</code> function needs a post processed output structure as input. Only the fields contained in the structure will be saved in a <strong>.mat</strong> file, so, be careful to the type of post processing that was performed (<code class="m">"light"</code> or <code class="m">"full"</code>). The second input argument is an optional string that specifies the file where to save the results. If no second argument is given, the results will be saved with a string indicating the moment when the function was called, like: <code class="m">"2025_12_25_12_30_00"</code>.</p>
+<pre><code class="language-matlab">Save(out_pp,"my_result.mat");
+Save(out_pp);</code></pre>
+<h2 id="load">Load</h2>
+<p>The <code class="m">Load</code> function takes as argument a string specifying the <strong>.mat</strong> file containing the results you want to load and returns the post processed output structure.</p>
+<pre><code class="language-matlab">out_pp = Load("my_result.mat");</code></pre>
+<div class="pager" id="pager"></div>
+<footer class="site">Merlino2D User Manual by Fabio Ragazzi. Source code: <a href="https://github.com/PTL-Unibo/Merlino2D">github.com/PTL-Unibo/Merlino2D</a></footer>
+</main>
+</div>
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/auto-render.min.js"></script>
+<script defer src="assets/site.js"></script>
+</body>
+</html>

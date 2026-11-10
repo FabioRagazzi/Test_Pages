@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installation · Merlino2D User Manual</title>
+<meta name="description" content="How to download and install Merlino2D, and verify the installation.">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="installation.html">
+<header class="topbar"><a href="index.html">Merlino2D</a><button id="menu-btn" type="button" aria-expanded="false" aria-controls="sidebar">Menu</button></header>
+<div class="layout">
+<aside id="sidebar" aria-label="Site navigation"><noscript><a href="index.html">Introduction</a></noscript></aside>
+<main id="content">
+<h1>Installation</h1>
+<h2 id="download">Download</h2>
+<p><a href="https://github.com/PTL-Unibo/Merlino2D">Here</a> you can download a ZIP folder containing the code. Alternatively, you can clone the repository with git:</p>
+<pre class="console"><code class="language-console">&gt; git clone https://github.com/PTL-Unibo/Merlino2D.git</code></pre>
+<h2 id="installation-steps">Installation steps</h2>
+<p>To use Merlino2D you need <a href="https://it.mathworks.com/">MATLAB</a> installed on your computer. You also need to install <a href="https://gmsh.info/">Gmsh</a> for mesh generation.</p>
+<p>The first time using Merlino2D it is necessary to run the script <strong>Merlino2D_startup.m</strong> that is inside the <strong>src/</strong> folder. By running this script, you will be firstly asked to select the <strong>gmsh.exe</strong> executable that you should have previously installed on your computer. After, you will be asked to select the <strong>Code/</strong> folder of the <a href="https://github.com/LoKI-Suite/LoKI-B">LoKI-B</a> repository, that you should have cloned on your device if you wish to have the option of using the Boltzmann solver for computing swarm parameters and rate coefficients.</p>
+<div class="note"><p>If the folder containing the project is moved to another location, you need to run <strong>Merlino2D_startup.m</strong> again.</p></div>
+<h2 id="verification">Verification</h2>
+<p>If the installation was successful, you can now run all the examples contained in the <strong>cases/</strong> folder (if you also moved the <strong>Air.in</strong> file inside the <strong>Code/Input/</strong> folder of the LoKI-B repository). We suggest that you start by running the script <strong>c_Diffusion.m</strong>, which should not take a long time and does not require to move the <strong>Air.in</strong> file. By running that script, a Gmsh window containing a square divided into two half should appear. Closing that window the simulation will start and you should see the following text appearing in the Command Window:</p>
+<pre class="console"><code class="language-console">Generated Mesh
+Photoionization is OFF
+Initialization finished
+Updated photoionization, maximum value = 0.000000e+00
+Simulation finished
+Deleted SquareCenterRefined.m</code></pre>
+<p>Finally, the following figure should appear:</p>
+<figure>
+<div class="plate"><img src="assets/img/fig_diffusion.png" width="520" alt="Plot of normalized number density against y in metres, at t = 0 s, 1 ms and 2 ms. The numerical points lie on the analytical curves, which flatten and widen over time."></div>
+<figcaption>Expected output of <strong>c_Diffusion.m</strong>: numerical results (dots) compared with the analytical solution (lines) at three time instants.</figcaption>
+</figure>
+<p>If you see the above figure appearing without getting any errors, it means that you have successfully installed Merlino2D.</p>
+<div class="pager" id="pager"></div>
+<footer class="site">Merlino2D User Manual by Fabio Ragazzi. Source code: <a href="https://github.com/PTL-Unibo/Merlino2D">github.com/PTL-Unibo/Merlino2D</a></footer>
+</main>
+</div>
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/auto-render.min.js"></script>
+<script defer src="assets/site.js"></script>
+</body>
+</html>

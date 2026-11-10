@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Input parameters · Merlino2D User Manual</title>
+<meta name="description" content="Reference for every Merlino2D input parameter.">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="input-parameters.html">
+<header class="topbar"><a href="index.html">Merlino2D</a><button id="menu-btn" type="button" aria-expanded="false" aria-controls="sidebar">Menu</button></header>
+<div class="layout">
+<aside id="sidebar" aria-label="Site navigation"><noscript><a href="index.html">Introduction</a></noscript></aside>
+<main id="content">
+<h1>Input parameters</h1>
+<p class="lede">Every option you can set in the <code class="m">opts</code> structure, in the order they are explained in the manual.</p>
+<p>The table lists each parameter with its type and, where the manual states one, its default value. A dash means no default is stated here; some parameters have defaults in <strong>DefaultMerlino2Dinput.m</strong>.</p>
+<div class='table-wrap'><table><thead><tr><th>Parameter</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td><a class="param" href="input-parameters.html#msh">MSH</a></td><td>string</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#msh-parameters">MSH_PARAMETERS</a></td><td>struct</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#epsr-val">EPSR_VAL</a></td><td>column vector</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#bcel-flag">BCEL_FLAG</a></td><td>column vector</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#bcel-val">BCEL_VAL</a></td><td>column vector</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#v-applied">V_APPLIED</a></td><td>function handle</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#bc-flag">BC_FLAG</a></td><td>cell array</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#bc-val">BC_VAL</a></td><td>cell array</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#time-instants">TIME_INSTANTS</a></td><td>vector</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#initial-condition">INITIAL_CONDITION</a></td><td>cell array, string or struct</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#mu">MU</a></td><td>cell array</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#d">D</a></td><td>cell array</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#v-th-coeff">V_TH_COEFF</a></td><td>cell array</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#const-omega">CONST_OMEGA</a></td><td>cell array</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#photoionization">PHOTOIONIZATION</a></td><td>struct</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a></td><td>string</td><td><code class="m">"Off"</code></td></tr><tr><td><a class="param" href="input-parameters.html#const-species">CONST_SPECIES</a></td><td>cell array</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#loki-input">LOKI_INPUT</a></td><td>string</td><td>—</td></tr><tr><td><a class="param" href="input-parameters.html#electron-temperature">ELECTRON_TEMPERATURE</a></td><td>number or string</td><td><code class="m">2</code></td></tr><tr><td><a class="param" href="input-parameters.html#temperature">TEMPERATURE</a></td><td>number (K)</td><td><code class="m">300</code></td></tr><tr><td><a class="param" href="input-parameters.html#pressure">PRESSURE</a></td><td>number (Pa)</td><td><code class="m">101325</code></td></tr><tr><td><a class="param" href="input-parameters.html#electron-ref-coeff">ELECTRON_REF_COEFF</a></td><td>number</td><td><code class="m">0</code></td></tr><tr><td><a class="param" href="input-parameters.html#gamma-ii">GAMMA_II</a></td><td>number</td><td><code class="m">1e-2</code></td></tr><tr><td><a class="param" href="input-parameters.html#surf-charge-coeff">SURF_CHARGE_COEFF</a></td><td>vector, 3 elements</td><td><code class="m">[1, 1, 1]</code></td></tr><tr><td><a class="param" href="input-parameters.html#gamma-ii-diel">GAMMA_II_DIEL</a></td><td>number</td><td><code class="m">1e-2</code></td></tr><tr><td><a class="param" href="input-parameters.html#ode-type">ODE_TYPE</a></td><td>string</td><td><code class="m">"ode15s"</code></td></tr><tr><td><a class="param" href="input-parameters.html#open-gmsh">OPEN_GMSH</a></td><td>flag (0 or 1)</td><td><code class="m">1</code></td></tr><tr><td><a class="param" href="input-parameters.html#reordering">REORDERING</a></td><td>flag (0 or 1)</td><td><code class="m">0</code></td></tr><tr><td><a class="param" href="input-parameters.html#output-function">OUTPUT_FUNCTION</a></td><td>string</td><td><code class="m">"bar"</code></td></tr><tr><td><a class="param" href="input-parameters.html#bar-scale">BAR_SCALE</a></td><td>string</td><td><code class="m">"lin"</code></td></tr><tr><td><a class="param" href="input-parameters.html#steady-state-threshold">STEADY_STATE_THRESHOLD</a></td><td>number</td><td><code class="m">1e-3</code></td></tr><tr><td><a class="param" href="input-parameters.html#t-start-steady-state">T_START_STEADY_STATE</a></td><td>number (s)</td><td><code class="m">0</code></td></tr><tr><td><a class="param" href="input-parameters.html#abs-tol">ABS_TOL</a></td><td>number</td><td><code class="m">1e-6</code></td></tr><tr><td><a class="param" href="input-parameters.html#rel-tol">REL_TOL</a></td><td>number</td><td><code class="m">1e-3</code></td></tr><tr><td><a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a></td><td>cell array</td><td>—</td></tr></tbody></table></div>
+<h2 class="param" id="msh">MSH</h2>
+<p>This parameter is a string used to specify the mesh file. For example, if you have created a file <strong>My_mesh.geo</strong> with Gmsh, and you want to run a simulation on that mesh, you must first of all put the file inside the <strong>geo/</strong> folder. To tell the code that you want to run the simulation on that mesh, you have to set the <a class="param" href="input-parameters.html#msh">MSH</a> parameter to the name of the <strong>.geo</strong> file:</p>
+<pre><code class="language-matlab">opts.MSH = "My_mesh";</code></pre>
+<p>Note that you must have at the end of the <strong>.geo</strong> file a line that saves the mesh in the MATLAB format. So, considering the previous example, at the end of the file <strong>My_mesh.geo</strong> you must have the line:</p>
+<pre class="console"><code class="language-console">Save "My_mesh.m";</code></pre>
+<h2 class="param" id="msh-parameters">MSH_PARAMETERS</h2>
+<p>This parameter is a struct that contains in its fields extra inputs that you might want to pass to a parametric mesh. It is indeed possible to create <strong>.geo</strong> files that accept parameters from command line. For example you can create a mesh file that generates a rectangle, taking the width <strong>W</strong> and height <strong>H</strong> from command line. Supposing you want to pass <strong>W</strong> = 2 and <strong>H</strong> = 1 to the mesh file (that you have specified with the <a class="param" href="input-parameters.html#msh">MSH</a> parameter), you can do it with this syntax:</p>
+<pre><code class="language-matlab">opts.MSH_PARAMETERS.W = 2;
+opts.MSH_PARAMETERS.H = 1;</code></pre>
+<h2 class="param" id="epsr-val">EPSR_VAL</h2>
+<p>This parameter is used to set the value of the relative dielectric permittivity \(\varepsilon_r\) in each region of the simulation domain. <a class="param" href="input-parameters.html#epsr-val">EPSR_VAL</a> must be a <strong>column</strong> vector with as many elements as there are SurfaceIDs (see <a href="mesh-identifiers.html">Mesh identifiers</a>). Referring to the example there, if you wish to set \(\varepsilon_r\) to 1 and 4 in the <span class="chip air">1</span> and <span class="chip diel">2</span> regions, respectively, you should set</p>
+<pre><code class="language-matlab">opts.EPSR_VAL = [1; 4];</code></pre>
+<h2 class="param" id="bcel-flag">BCEL_FLAG</h2>
+<p>This parameter specifies the type of boundary conditions applied to the electric potential. <a class="param" href="input-parameters.html#bcel-flag">BCEL_FLAG</a> must be a <strong>column</strong> vector containing as many elements as there are BoundaryIDs (see <a href="mesh-identifiers.html">Mesh identifiers</a>). Each element of the vector can be set to 0, corresponding to a Dirichlet boundary condition at the associated external boundary, or 1, corresponding to a zero Neumann condition. Referring to the example there, if you want to apply a Dirichlet boundary condition at external boundaries <span class="c-red">1</span> and <span class="c-blue">2</span>, and a zero Neumann condition at external boundary <span class="c-green">3</span>, you should set</p>
+<pre><code class="language-matlab">opts.BCEL_FLAG = [0; 0; 1];</code></pre>
+<h2 class="param" id="bcel-val">BCEL_VAL</h2>
+<p>This parameter is used to set the value of the electric potential at those boundaries where a Dirichlet condition is used. <a class="param" href="input-parameters.html#bcel-val">BCEL_VAL</a> must be a <strong>column</strong> vector containing as many elements as there are BoundaryIDs (see <a href="mesh-identifiers.html">Mesh identifiers</a>). Each element corresponding to a boundary with a Dirichlet condition should contain the value of the electric potential imposed at that boundary <strong>normalized by</strong> <a class="param" href="input-parameters.html#v-applied">V_APPLIED</a>. All the other elements of the vector (corresponding to zero Neumann boundaries) should be set to 0. Referring to the example there, if you want to apply an electric potential equal to half <code class="m">V_APPLIED</code> at the boundary <span class="c-red">1</span> and set the potential at boundary <span class="c-blue">2</span> to 0, you should set</p>
+<pre><code class="language-matlab">opts.BCEL_VAL = [0.5; 0; 0];</code></pre>
+<h2 class="param" id="v-applied">V_APPLIED</h2>
+<p>This parameter is a function handle used to specify the applied voltage between the electrodes, as a function of time. The user can define any custom function.</p>
+<pre><code class="language-matlab">opts.V_APPLIED = @(t) 100*cos(2*pi*50*t + pi/4);
+opts.V_APPLIED = @(t) 20*(t-1e-9);
+opts.V_APPLIED = @(t) 20e3;</code></pre>
+<p>For DC discharges, it was observed that applying from the start the steady-state voltage may lead to failure of the time-integration solver. Gradually increasing the voltage until reaching the desired value often solved the problem. For this reason, some functions that implement this gradual increase of the voltage are provided in Merlino2D:</p>
+<ul><li><code class="m">LinRamp</code></li><li><code class="m">LogRamp</code></li><li><code class="m">StairRamp</code> (particularly useful for obtaining the I-V characteristic of a corona discharge)</li></ul>
+<h2 class="param" id="bc-flag">BC_FLAG</h2>
+<p>This parameter is used to specify the type of boundary condition for the species conservation equation. <a class="param" href="input-parameters.html#bc-flag">BC_FLAG</a> must be a cell array with two columns.</p>
+<p>In the first column, you should put strings containing the names of the species considered for the simulation. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to a <strong>.m</strong> script, the species must be the ones appearing in the <code class="m">reactions</code> defined inside the script. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to <code class="m">"Off"</code>, the species must be the ones specified in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a>. Note that all the species used must be defined inside the file <strong>species_database.csv</strong> contained in the <strong>data/</strong> folder.</p>
+<p>Each element of the second column must be a row cell array with as many elements as there are BoundaryIDs (see <a href="mesh-identifiers.html">Mesh identifiers</a>). Each one of these cell arrays will be used to set the boundary condition for the continuity equation of the species that appears at the corresponding position in the first column of <a class="param" href="input-parameters.html#bc-flag">BC_FLAG</a>. The i-th element of one of these cell arrays must be a string specifying the type of boundary condition to be applied at the i-th boundary. The available types of boundary conditions are (see the paper for details):</p>
+<ul><li><code class="m">"Dirichlet"</code></li><li><code class="m">"Flux"</code></li><li><code class="m">"FreeDriftFlow"</code></li><li><code class="m">"GorinLike"</code></li></ul>
+<p>For instance, considering a mesh with 3 BoundaryIDs and 2 species (<code class="m">"e"</code> and <code class="m">"N2+"</code>, that must be defined inside <strong>species_database.csv</strong>), you could set</p>
+<pre><code class="language-matlab">opts.BC_FLAG = {
+    "e",   {"GorinLike", "Flux", "Dirichlet"};
+    "N2+", {"GorinLike", "FreeDriftFlow", "Flux"}};</code></pre>
+<h2 class="param" id="bc-val">BC_VAL</h2>
+<p>This parameter is used to specify the value of boundary conditions for the species continuity equation. <a class="param" href="input-parameters.html#bc-val">BC_VAL</a> must be a cell array with two columns.</p>
+<p>In the first column, you should put strings containing the names of the species considered for the simulation. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to a <strong>.m</strong> script, the species must be the ones appearing in the <code class="m">reactions</code> defined inside the script. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to <code class="m">"Off"</code>, the species must be the ones specified in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a>. Note that all the species used must be defined inside the file <strong>species_database.csv</strong> contained in the <strong>data/</strong> folder.</p>
+<p>Each element of the second column must be a row cell array with as many elements as there are BoundaryIDs (see <a href="mesh-identifiers.html">Mesh identifiers</a>). Each one of these cell arrays will be used to set the boundary condition value for the continuity equation of the species that appears at the corresponding position in the first column of <a class="param" href="input-parameters.html#bc-val">BC_VAL</a>. The i-th element of these cell arrays can be an anonymous function (if you wish to set a time-dependent value) or a double (if you wish to set a constant value), specifying the boundary condition to be applied at the i-th boundary.</p>
+<p>Note that <a class="param" href="input-parameters.html#bc-val">BC_VAL</a> is complementary to <a class="param" href="input-parameters.html#bc-flag">BC_FLAG</a>, and only boundary conditions of type <code class="m">"Dirichlet"</code> or <code class="m">"Flux"</code> require a value. Therefore, <a class="param" href="input-parameters.html#bc-val">BC_VAL</a> contains the desired value of number density (in m<sup>−3</sup>) if a <code class="m">"Dirichlet"</code> condition was selected, and the desired value of flux density (in m<sup>−2</sup> s<sup>−1</sup>) if a <code class="m">"Flux"</code> condition was selected. For boundaries that were associated to <code class="m">"GorinLike"</code> or <code class="m">"FreeDriftFlow"</code> conditions, the corresponding value specified in <a class="param" href="input-parameters.html#bc-val">BC_VAL</a> will be ignored (but you must place some value anyway).</p>
+<p>For example, considering the case of a mesh with 3 BoundaryIDs and 2 species, where you previously set</p>
+<pre><code class="language-matlab">opts.BC_FLAG = {
+    "e",   {"GorinLike", "Flux", "Dirichlet"};
+    "N2+", {"GorinLike", "FreeDriftFlow", "Flux"}};</code></pre>
+<p>you could set</p>
+<pre><code class="language-matlab">opts.BC_VAL = {
+    "N2+", {NaN, NaN, @(t)t^2};
+    "e",   {NaN, @(t)1e10*t, 1e15}};</code></pre>
+<p>With this combination of parameters you are imposing a constant number density of 1·10<sup>5</sup> m<sup>−3</sup> for the species <code class="m">"e"</code> at the third boundary, and a time-dependent expression for computing the flux of <code class="m">"e"</code> at the second boundary and of <code class="m">"N2+"</code> at the third boundary. Notice that <code class="m">NaN</code> have been placed in <a class="param" href="input-parameters.html#bc-val">BC_VAL</a> at positions corresponding to <code class="m">"GorinLike"</code> and <code class="m">"FreeDriftFlow"</code> flags. This was done to highlight that, for those species and boundaries where a <code class="m">"GorinLike"</code> or a <code class="m">"FreeDriftFlow"</code> condition has been used, the value inserted in the corresponding position of <a class="param" href="input-parameters.html#bc-val">BC_VAL</a> will be completely ignored.</p>
+<h2 class="param" id="time-instants">TIME_INSTANTS</h2>
+<p>This parameter is a vector containing the time instants at which the solution is desired. The first value of the vector corresponds to the starting time of the simulation, and the last value of the vector tells the solver when to stop integration.</p>
+<div class="note warn"><p>If a vector with only two elements is provided, the solver will output all the steps that have been internally performed. Be careful in this case, because this might result in a lot of output time steps, that can quickly fill the memory, especially when meshes with a large number of triangles are used.</p></div>
+<pre><code class="language-matlab">opts.TIME_INSTANTS = linspace(0,1e-6,100);
+opts.TIME_INSTANTS = [0, 1e-6];</code></pre>
+<h2 class="param" id="initial-condition">INITIAL_CONDITION</h2>
+<p>This parameter is used to specify the initial condition for the species number density. There are three types of use for this parameter:</p>
+<ul><li>Uniform number density</li><li>Load from previous simulation</li><li>Gaussian distribution (only when <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> = <code class="m">"Off"</code>)</li></ul>
+<h3 id="initial-uniform">Uniform number density</h3>
+<p>If you wish to assign a uniform number density to each species across the entire domain, set <a class="param" href="input-parameters.html#initial-condition">INITIAL_CONDITION</a> to a cell array with two columns.</p>
+<p>In the first column, you should put strings containing the names of the species considered for the simulation. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to a <strong>.m</strong> script, the species must be the ones appearing in the <code class="m">reactions</code> defined inside the script. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to <code class="m">"Off"</code>, the species must be the ones specified in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a>. Note that all the species used must be defined inside the file <strong>species_database.csv</strong> contained in the <strong>data/</strong> folder.</p>
+<p>In the second column, you should put the desired uniform number densities in m<sup>−3</sup>. Each of these values will be associated to the corresponding species in the first column.</p>
+<pre><code class="language-matlab">opts.INITIAL_CONDITION = {
+    "e",   1e10;
+    "N2+", 1e12;
+    "O2+", 1e13;
+    "N2",  1e25};</code></pre>
+<h3 id="initial-load">Load from previous simulation</h3>
+<p>If you wish to start a simulation using the number density distribution obtained at the end of a previous run, set <a class="param" href="input-parameters.html#initial-condition">INITIAL_CONDITION</a> to a string containing the absolute path of the saved results file (the <strong>.mat</strong> file generated by the <code class="m">Save</code> command). For example:</p>
+<pre><code class="language-matlab">opts.INITIAL_CONDITION = "C:/Users/JohnSmith/Merlino2D/Results/test.mat";</code></pre>
+<p>Alternatively, you can specify a relative path; however, this approach is less reliable, as it may fail depending on the working directory at the time Merlino2D is executed. For instance, if the simulation is launched from the main Merlino2D folder, the following command is also valid:</p>
+<pre><code class="language-matlab">opts.INITIAL_CONDITION = "Results/test.mat";</code></pre>
+<p>For this usage, the mesh should be the same of the previous simulation, as well as the species.</p>
+<h3 id="initial-gaussian">Gaussian distribution</h3>
+<p>This option is available only when <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> is set to <code class="m">"Off"</code>. In this case, if you wish to assign to each species a two-dimensional Gaussian distribution, set <a class="param" href="input-parameters.html#initial-condition">INITIAL_CONDITION</a> to a struct with fields</p>
+<ul><li>A</li><li>B</li><li>x0</li><li>y0</li><li>sigma_x</li><li>sigma_y</li></ul>
+<p>each of them being a vector with as many elements as the number of species contained in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a>. This will generate for the i-th species contained in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a> a number density distribution</p>
+<div class="math-display">\[ n_i(x,y) = \mathbf{A}[i]\,\exp\!\left(-\left(\frac{(x-\mathbf{x0}[i])^2}{(\mathbf{sigma\_x}[i])^2} + \frac{(y-\mathbf{y0}[i])^2}{(\mathbf{sigma\_y}[i])^2}\right)\right) + \mathbf{B}[i], \]</div>
+<p>where the value of the parameters A, B, x0, y0, sigma_x and sigma_y is taken from the corresponding i element of the array. Note that the order of the numbers inside these arrays is important. For example you could set</p>
+<pre><code class="language-matlab">opts.INITIAL_CONDITION.A = [1e10, 1e11];
+opts.INITIAL_CONDITION.B = [1e5, 0];
+opts.INITIAL_CONDITION.x0 = [1e-2, 0];
+opts.INITIAL_CONDITION.y0 = [1e-2, 1e-1];
+opts.INITIAL_CONDITION.sigma_x = [1e-3, 1e-3];
+opts.INITIAL_CONDITION.sigma_y = [1e-1, 1e-1];</code></pre>
+<h2 class="param" id="mu">MU</h2>
+<p>This parameter is used to set the mobilities of the species, in m<sup>2</sup> V<sup>−1</sup> s<sup>−1</sup>. <a class="param" href="input-parameters.html#mu">MU</a> must be a cell array with two columns.</p>
+<p>In the first column, you should put strings containing the names of the species considered for the simulation. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to a <strong>.m</strong> script, the species must be the ones appearing in the <code class="m">reactions</code> defined inside the script. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to <code class="m">"Off"</code>, the species must be the ones specified in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a>. Note that all the species used must be defined inside the file <strong>species_database.csv</strong> contained in the <strong>data/</strong> folder.</p>
+<p>The elements in the second column will be used to determine the mobility of the corresponding species in the first column. Each element of the second column can be a number (if you wish to set a constant and uniform mobility) or a string. You should use a string to write an expression that will be used to compute the mobility. In the string, you can use any valid Matlab syntax to combine the available standard variables <strong>E</strong>, <strong>Te</strong>, <strong>T</strong> and <strong>Ngas</strong>, which correspond to the electric field in Td, the electron temperature in eV, the gas temperature in K, and the gas density in m<sup>−3</sup>, respectively. Note that the first three are arrays with as many elements as domain points, while the last one is a scalar. For example, you can set</p>
+<pre><code class="language-matlab">opts.MU = {
+    "e",   0.001;
+    "O2-", "exp(E/120)*T^(-0.5)";
+    "O4+", "Ngas*max(log(T),Te^(-0.2))"};</code></pre>
+<p>to have a constant mobility for the species <code class="m">"e"</code> and a mobility that is computed as a function of <strong>E</strong>, <strong>Te</strong>, <strong>T</strong>, and <strong>Ngas</strong> for the species <code class="m">"O2-"</code> and <code class="m">"O4+"</code>.</p>
+<h3 id="mu-csv">CSV variables</h3>
+<p>Inside the string expressions, you can also use <strong>.csv</strong> files contained inside the <strong>data/</strong> folder to define new variables (called csv variables). For example, suppose that you have obtained a relation between the reduced mobility and the reduced electric field, and that you have stored that relation inside a file <strong>my_reduced_Mobility.csv</strong>, where the first column contains the values of the reduced electric field, and the second column contains the values of the reduced mobility. In this case, you can set</p>
+<pre><code class="language-matlab">opts.MU = {
+    "O2-", "exp(E/120)*T^(-0.5)";
+    "e",   0.001;
+    "O4+", "my_reduced_Mobility(E)/Ngas"};</code></pre>
+<p>to use the relation contained inside the <strong>.csv</strong> file to compute the mobility of <code class="m">"O4+"</code>. Note that csv variables can be combined with standard variables, as you can see from the fact that <code class="m">"my_reduced_Mobility"</code> is divided by the gas density <code class="m">"Ngas"</code>. It is also possible to combine different csv variables inside a string expression.</p>
+<p>Also, note that you must specify the dependence of the csv variable from one of the four standard variables. For instance, in the above example, <code class="m">"(E)"</code> was added after the name of the csv variable to indicate that in the first column of the <strong>.csv</strong> file are stored the values of reduced electric field. If you wish to define a csv variable that depends on the value of the electron temperature, you must add <code class="m">"(Te)"</code> after the name of the variable, like</p>
+<pre><code class="language-matlab">opts.MU = {
+    "O2-", "exp(E/120)*T^(-0.5)";
+    "e",   0.001;
+    "O4+", "my_mob_as_func_of_Te(Te)"};</code></pre>
+<h3 id="mu-loki">LoKI variables</h3>
+<p>In case you set a value for <a class="param" href="input-parameters.html#loki-input">LOKI_INPUT</a>, additional variables (called loki variables) will be available. These are: <strong>Loki_D</strong>, <strong>Loki_mu</strong>, <strong>Loki_alpha</strong>, <strong>Loki_eta</strong>. They represent the reduced electron diffusion coefficient, the reduced electron mobility, the reduced Townsend ionization coefficient, and the reduced attachment coefficient, respectively. These variables work in the same way of csv variables, but are available without the need to define any <strong>.csv</strong> file, since they are obtained from the LoKI-B simulation specified with <a class="param" href="input-parameters.html#loki-input">LOKI_INPUT</a>. In addition, these variables are all dependent on the reduced electric field, which means that they must always appear inside a string expression as <code class="m">Loki_D(E)</code>, <code class="m">Loki_mu(E)</code>, <code class="m">Loki_alpha(E)</code>, and <code class="m">Loki_eta(E)</code>. For example, you could set</p>
+<pre><code class="language-matlab">opts.MU = {
+    "e",  "Loki_mu(E)/Ngas";
+    "N2+", 1e-4;
+    "O-", "exp(E/120)*T^(-0.5)"};</code></pre>
+<h2 class="param" id="d">D</h2>
+<p>This parameter is used to set the diffusion coefficient of the species, in m<sup>2</sup> s<sup>−1</sup>. <a class="param" href="input-parameters.html#d">D</a> must be a cell array with two columns.</p>
+<p>In the first column, you should put strings containing the names of the species considered for the simulation. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to a <strong>.m</strong> script, the species must be the ones appearing in the <code class="m">reactions</code> defined inside the script. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to <code class="m">"Off"</code>, the species must be the ones specified in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a>. Note that all the species used must be defined inside the file <strong>species_database.csv</strong> contained in the <strong>data/</strong> folder.</p>
+<p>The elements in the second column will be used to determine the diffusion coefficient of the corresponding species in the first column. Each element of the second column can be a number (if you wish to set a constant and uniform value for the diffusion coefficient) or a string (if you wish to define an expression that will be used to compute the value of the diffusion coefficient). The exact same rules explained for the definition of a <a class="param" href="input-parameters.html#mu">MU</a> string expression (standard variables, csv variables and loki variables) also apply for <a class="param" href="input-parameters.html#d">D</a>.</p>
+<p>The only difference is that, when using a string expression for <a class="param" href="input-parameters.html#d">D</a>, you can use a fifth standard variable, <strong>mu</strong>, in addition to the four previously described (<strong>E</strong>, <strong>Te</strong>, <strong>T</strong>, <strong>Ngas</strong>). With this variable, you can access the mobility of the species used in the simulation, and use it in the definition of the diffusion coefficient expression. Note that if you want to use the mobility of the species <code class="m">"e"</code>, <code class="m">"O3-"</code>, and <code class="m">"N2+"</code>, you should write in the string expression <code class="m">"(mue)"</code>, <code class="m">"(muO3-)"</code>, and <code class="m">"(muN2+)"</code>, respectively. The general syntax for using the <strong>mu</strong> variable is: <code class="m">"(mu"</code> + name of the desired species + <code class="m">")"</code>.</p>
+<p>This standard variable is particularly useful when you want to use the Einstein relation to compute the diffusion coefficient. For example, you can set</p>
+<pre><code class="language-matlab">opts.D = {
+    "N2+", "(muN2+)*T/11600";
+    "e",   "(mue)*Te";
+    "O-",  "(muO-)*T/11600"};</code></pre>
+<p>to use the Einstein relation for all three species. Alternatively, if a value was specified for <a class="param" href="input-parameters.html#loki-input">LOKI_INPUT</a>, you could set</p>
+<pre><code class="language-matlab">opts.D = {
+    "N2+", "(muN2+)*T/11600";
+    "e",   "Loki_D(E)/Ngas";
+    "O-",  "(muO-)*T/11600"};</code></pre>
+<h2 class="param" id="v-th-coeff">V_TH_COEFF</h2>
+<p>This parameter is used to specify if the thermal velocity needs to be considered or not in <code class="m">"GorinLike"</code> boundary conditions. This parameter should be a cell array with two columns.</p>
+<p>In the first column, you should put strings containing the names of the species considered for the simulation. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to a <strong>.m</strong> script, the species must be the ones appearing in the <code class="m">reactions</code> defined inside the script. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to <code class="m">"Off"</code>, the species must be the ones specified in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a>. Note that all the species used must be defined inside the file <strong>species_database.csv</strong> contained in the <strong>data/</strong> folder.</p>
+<p>Each element of the second column will be associated to the corresponding species in the first column and should be either a 0 (if the user wants to neglect the thermal velocity contribution) or a 1 (if the user wants to consider also the thermal velocity contribution). For example, in a simulation with 6 species, setting</p>
+<pre><code class="language-matlab">opts.V_TH_COEFF = {
+    "O3-", 0;
+    "e",   0;
+    "O4+", 0;
+    "N2+", 1;
+    "O2+", 1;
+    "O-",  1};</code></pre>
+<p>means that for <code class="m">"O3-"</code>, <code class="m">"e"</code> and <code class="m">"O4+"</code> the thermal velocity contribution to the boundary flux density will be neglected, while it will be considered for <code class="m">"N2+"</code>, <code class="m">"O2+"</code> and <code class="m">"O-"</code>.</p>
+<h2 class="param" id="const-omega">CONST_OMEGA</h2>
+<p>This parameter is used to set a constant source term for the species. <a class="param" href="input-parameters.html#const-omega">CONST_OMEGA</a> must be a cell array with two columns.</p>
+<p>In the first column, you should put strings containing the names of the species considered for the simulation. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to a <strong>.m</strong> script, the species must be the ones appearing in the <code class="m">reactions</code> defined inside the script. If <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> was set to <code class="m">"Off"</code>, the species must be the ones specified in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a>. Note that all the species used must be defined inside the file <strong>species_database.csv</strong> contained in the <strong>data/</strong> folder.</p>
+<p>Each element of the second column should contain the constant and uniform value (in m<sup>−3</sup> s<sup>−1</sup>) of the source term to add to the \(\partial n/\partial t\) of the corresponding species in the first column. This parameter can be useful to mimic background ionization and also to prevent the number density of species to decrease excessively.</p>
+<pre><code class="language-matlab">opts.CONST_OMEGA = {
+    "N2+", 0.8e15;
+    "O2+", 0.2e15;
+    "e",   1e15;
+    "O2-", 1e5};</code></pre>
+<h2 class="param" id="photoionization">PHOTOIONIZATION</h2>
+<p>This parameter is a struct with fields: <code class="m">REACTIONS</code>, <code class="m">SPECIES_COEFF</code>, <code class="m">BC</code>, and <code class="m">UPDATE_FREQUENCY</code>.</p>
+<h3 id="photoionization-reactions">REACTIONS</h3>
+<p><code class="m">REACTIONS</code> is a cell array of strings. It is used to indicate which chemical reactions (contained in the kinetic scheme specified with <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a>) contribute to the ionization rate of neutral molecules by electron impact. The total ionization rate, \(S_i\), will be computed as the sum of the reaction rates of the reactions specified. For example, you could set</p>
+<pre><code class="language-matlab">opts.PHOTOIONIZATION.REACTIONS = {
+    'e + N2 -&gt; 2e + N2+';
+    "e + O2 -&gt; 2e + O2+"};</code></pre>
+<h3 id="photoionization-species-coeff">SPECIES_COEFF</h3>
+<p><code class="m">SPECIES_COEFF</code> is used to distribute the total photoionization rate, \(S_{ph}\), among different species. <code class="m">SPECIES_COEFF</code> is a cell array with two columns. The first column contains the names of the positive ions produced (as strings) and the second column contains the weight associated to each positive ion.</p>
+<p>Considering the previous example of <code class="m">PHOTOIONIZATION.REACTIONS</code>, you may want to split \(S_{ph}\) between N<sub>2</sub><sup>+</sup> and O<sub>2</sub><sup>+</sup> with different weights. You could set</p>
+<pre><code class="language-matlab">opts.PHOTOIONIZATION.SPECIES_COEFF = {
+    "N2+", 0.8;
+    "O2+", 0.2};</code></pre>
+<p>to add \(0.8\,S_{ph}\) to the production rate of N<sub>2</sub><sup>+</sup> and to add \(0.2\,S_{ph}\) to the production rate of O<sub>2</sub><sup>+</sup>. \(S_{ph}\) will be automatically added to the production rate of electrons.</p>
+<h3 id="photoionization-bc">BC</h3>
+<p><code class="m">BC</code> is used to set the boundary conditions for the Helmholtz equation</p>
+<div class="math-display">\[ \nabla^2 S_{ph}^{(j)} - (\lambda_j\, p_{\mathrm{O_2}})^2\, S_{ph}^{(j)} = -A_j\, p_{\mathrm{O_2}}^2\, I. \]</div>
+<p><code class="m">BC</code> must be a vector containing as many elements as there are BoundaryIDs (see <a href="mesh-identifiers.html">Mesh identifiers</a>). Each element of the vector can be set to 0, corresponding to a <strong>zero</strong> Dirichlet boundary condition at the associated external boundary, or 1, corresponding to a <strong>zero</strong> Neumann condition. For example, you could set</p>
+<pre><code class="language-matlab">opts.PHOTOIONIZATION.BC = [1, 1, 0, 1];</code></pre>
+<h3 id="photoionization-update-frequency">UPDATE_FREQUENCY</h3>
+<p><code class="m">UPDATE_FREQUENCY</code> is an integer used to specify the frequency at which the photoionization rate \(S_{ph}\) is updated. Setting</p>
+<pre><code class="language-matlab">opts.PHOTOIONIZATION.UPDATE_FREQUENCY = 1;</code></pre>
+<p>means that the rate \(S_{ph}\) will be recomputed at each time instant contained inside <a class="param" href="input-parameters.html#time-instants">TIME_INSTANTS</a>. Setting</p>
+<pre><code class="language-matlab">opts.PHOTOIONIZATION.UPDATE_FREQUENCY = 5;</code></pre>
+<p>means that the rate \(S_{ph}\) will be recomputed once every 5 time instants.</p>
+<h2 class="param" id="chemical-model">CHEMICAL_MODEL</h2>
+<p>This parameter is a string used to specify the kinetic scheme to use in the simulation. The default value for this parameter is</p>
+<pre><code class="language-matlab">opts.CHEMICAL_MODEL = "Off";</code></pre>
+<p>which means that no kinetic scheme will be used. This is equivalent to solving the drift-diffusion equations without considering the source term \(\Omega\). If you want to use a kinetic scheme, you must first of all create a <strong>.m</strong> script and put it inside the <strong>kinetic/</strong> folder. In this script, you should define the details of the kinetic scheme you wish to use. You can then assign to <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> the name of the file you created. For example, if you created the script <strong>my_kinetic_scheme.m</strong>, you can set</p>
+<pre><code class="language-matlab">opts.CHEMICAL_MODEL = "my_kinetic_scheme";</code></pre>
+<p>to use the reaction set defined inside that file. Note that the extension <strong>.m</strong> must be omitted.</p>
+<p>A kinetic scheme script must contain the variable <code class="m">reactions</code>, that is a cell array, with two columns and as many rows as the number of chemical reactions included in the kinetic scheme. The first column should contain the definition of the reactions, the second should contain the definition of the corresponding rate coefficients (in m<sup>3</sup> s<sup>−1</sup>, if there are two reactants, or m<sup>6</sup> s<sup>−1</sup>, if there are three reactants). Each element of the first column should be a string containing the definition of a chemical reaction, with the syntax:</p>
+<pre><code class="language-matlab">"A + B -&gt; C + D"
+"2A + E -&gt; C+ + B"</code></pre>
+<p>Each element of the second column can be a number (if you wish to set a constant and uniform value for the rate coefficient) or a string (if you wish to define an expression that will be used to compute the rate coefficient). In the second case, the exact same rules explained for the definition of a <a class="param" href="input-parameters.html#mu">MU</a> string expression (standard variables, csv variables, and loki variables) also apply.</p>
+<h3 id="rate-coefficients-loki">Rate coefficients from LoKI-B</h3>
+<p>For the definition of rate coefficients of reactions involving electrons, in case a value has been specified for <a class="param" href="input-parameters.html#loki-input">LOKI_INPUT</a>, it is also possible to use the rate coefficient computed with LoKI-B. This can be done by setting the element of the second column to a specific string. LoKI-B will compute the rate coefficient for all the reactions taken as input (contained inside LXCat files). Therefore, to use a rate coefficient computed by LoKI-B, first of all it is necessary to identify the desired reaction. For example, you might want to use, as rate coefficients of one of the reactions you defined in the first column of <code class="m">reactions</code>, the value that LoKI-B calculated for the following reaction (contained inside the LXCat files):</p>
+<pre class="console"><code class="language-text">IONIZATION
+O2 -&gt; O2+
+ 1.210000e+1
+SPECIES: e / O2
+PROCESS: E + O2 -&gt; E + E + O2+, Ionization
+PARAM.:  E = 12.1 eV, complete set
+COMMENT: [e + O2(X) -&gt; e + e + O2(+,X), Ionization]
+COMMENT: Information Center Report, University of Colorado
+UPDATED: 2017-12-31 18:08:01
+COLUMNS: Energy (eV) | Cross section (m2)
+-----------------------------
+ 1.210000e+1	0.000000e+0
+ 1.220000e+1	6.000000e-23
+ 1.230000e+1	7.000000e-23
+ 1.240000e+1	8.000000e-23</code></pre>
+<p>To achieve this, you need to set the corresponding element of the second column of <code class="m">reactions</code> to a specific string, that will allow Merlino2D to select the right rate computed by LoKI-B. This string is the one <strong>inside the square brackets</strong> after the text "<code class="m">COMMENT:</code>" in the LXCat files. For this specific example, the string to put in the second column of <code class="m">reactions</code> is</p>
+<pre><code class="language-matlab">"e + O2(X) -&gt; e + e + O2(+,X), Ionization"</code></pre>
+<p>In Merlino2D some kinetic schemes for air are already provided inside the folder <strong>kinetic/</strong> and can be used as reference for the creation of new scripts, also for other types of gases.</p>
+<h2 class="param" id="const-species">CONST_SPECIES</h2>
+<p>This parameter is a cell array with 3 columns, used to specify the species that need to be considered constant and uniform during the simulation (if there are any) and their respective value.</p>
+<p>The first column should contain the name of the species (as strings) to treat as constant. All the species should appear inside the kinetic scheme specified with the <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> parameter.</p>
+<p>The second column contains the constant value of the associated species, that can be an absolute value or a relative value with respect to the gas density, depending on the content of the third column. If the third column contains the string <code class="m">"abs"</code>, the number in the corresponding second column will be interpreted as a constant number density (in m<sup>−3</sup>). If the third column contains the string <code class="m">"rel"</code>, the number in the corresponding second column will be interpreted as a fraction of the gas density <code class="m">Ngas</code>.</p>
+<p>For example, you could impose a constant number density for the species <code class="m">"A"</code> equal to 80% of the total gas density, and a constant number density for the species <code class="m">"B"</code> equal to 1·10<sup>15</sup> m<sup>−3</sup> by setting</p>
+<pre><code class="language-matlab">opts.CONST_SPECIES = {
+    "A", 0.8,  "rel";
+    "B", 1e15, "abs"};</code></pre>
+<div class="note warn"><p>All the species defined in <a class="param" href="input-parameters.html#const-species">CONST_SPECIES</a> must be removed from the input parameters <a class="param" href="input-parameters.html#bc-flag">BC_FLAG</a>, <a class="param" href="input-parameters.html#bc-val">BC_VAL</a>, <a class="param" href="input-parameters.html#initial-condition">INITIAL_CONDITION</a>, <a class="param" href="input-parameters.html#mu">MU</a>, <a class="param" href="input-parameters.html#d">D</a>, <a class="param" href="input-parameters.html#v-th-coeff">V_TH_COEFF</a>, and <a class="param" href="input-parameters.html#const-omega">CONST_OMEGA</a>, since they will not be part of the degrees of freedom of the simulation.</p></div>
+<p>If no species need to be considered as constant, you can avoid to define <a class="param" href="input-parameters.html#const-species">CONST_SPECIES</a>.</p>
+<h2 class="param" id="loki-input">LOKI_INPUT</h2>
+<p>This parameter is a string used to specify the <strong>.in</strong> input file for LoKI-B. To run a new LoKI-B input file, you must first of all create a valid one (we refer the reader to the <a href="https://github.com/LoKI-Suite/LoKI-B/tree/master/Documentation">LoKI-B documentation</a>), and place it inside the <strong>Input/</strong> folder of the LoKI-B directory (note that it is not possible to put the file inside a sub-folder). You can then set <a class="param" href="input-parameters.html#loki-input">LOKI_INPUT</a> to the name of the input file, removing from the name the <strong>.in</strong> extension.</p>
+<p>For example, if you created a LoKI-B input file named <strong>my_loki_input.in</strong> and you put it inside the <strong>Input/</strong> directory (already present in LoKI-B distribution), you should set</p>
+<pre><code class="language-matlab">opts.LOKI_INPUT = "my_loki_input";</code></pre>
+<p>To avoid running again the same file in the future, and load directly the results, it is suggested to save the results directly from the LoKI-B input file, by putting these settings at the end:</p>
+<pre class="console"><code class="language-text">% ---  configuration of the output files ---
+output: 
+  isOn: true
+  dataFormat: hdf5
+  folder: my_loki_input
+  dataSets:
+    - eedf
+    - swarmParameters
+    - rateCoefficients</code></pre>
+<p>Note that the text <code class="m">my_loki_input</code> after the <code class="m">folder</code> field should be replaced with the actual name of the <strong>.in</strong> file (<code class="m">my_loki_input</code> was used here to be consistent with the previous example). If the shown settings are added to the <strong>.in</strong> file, the next time a simulation is run with the option</p>
+<pre><code class="language-matlab">opts.LOKI_INPUT = "my_loki_input";</code></pre>
+<p>the results will be loaded directly without the need to run again LoKI-B.</p>
+<p>The input file for LoKI-B, <strong>Air.in</strong>, for a mixture of N<sub>2</sub> (79%) – O<sub>2</sub> (21%), is already provided with Merlino2D.</p>
+<h2 class="param" id="electron-temperature">ELECTRON_TEMPERATURE</h2>
+<p>This parameter is used to set the electron temperature for the simulation. You can select a constant and uniform value of the electron temperature (in eV) for the simulation by setting <a class="param" href="input-parameters.html#electron-temperature">ELECTRON_TEMPERATURE</a> to that value</p>
+<pre><code class="language-matlab">opts.ELECTRON_TEMPERATURE = 2; % (default)</code></pre>
+<p>Alternatively, you can set the electron temperature to be a function of the electric field. In this case, you need to prepare a <strong>.csv</strong> file containing the relationship between the reduced electric field (in Td) and the electron temperature (in eV). The electric field values must be in the first column of the file, the electron temperature values in the second column. This file must be placed inside the folder <strong>data/</strong> in Merlino2D main directory. You can then set <a class="param" href="input-parameters.html#electron-temperature">ELECTRON_TEMPERATURE</a> to the name of that file</p>
+<pre><code class="language-matlab">opts.ELECTRON_TEMPERATURE = "my_E_Te_relation";</code></pre>
+<p>The file <strong>Te_Air.csv</strong>, containing the electron temperature dependence on the reduced electric field for air, is already provided in Merlino2D and can be used as reference for creating new files.</p>
+<p>In addition, in case a value is provided to <a class="param" href="input-parameters.html#loki-input">LOKI_INPUT</a>, you can set</p>
+<pre><code class="language-matlab">opts.ELECTRON_TEMPERATURE = "LoKI";</code></pre>
+<p>to use the electron temperature (as a function of the reduced electric field) that was computed by LoKI-B.</p>
+<h2 class="param" id="temperature">TEMPERATURE</h2>
+<p>This parameter is the gas temperature in Kelvin. At the current stage, a constant and uniform value is considered. The default is</p>
+<pre><code class="language-matlab">opts.TEMPERATURE = 300;</code></pre>
+<p><a class="param" href="input-parameters.html#temperature">TEMPERATURE</a> is used to compute the gas density in m<sup>−3</sup>, <code class="m">Ngas</code> (mentioned in the explanation of <a class="param" href="input-parameters.html#mu">MU</a>, <a class="param" href="input-parameters.html#d">D</a>, and <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a>), with the equation:</p>
+<div class="math-display">\[ N_{gas} = \frac{P}{k_B T} \]</div>
+<p>where \(k_B\) is the Boltzmann constant, \(P\) is the pressure in Pa, and \(T\) is the temperature in K.</p>
+<h2 class="param" id="pressure">PRESSURE</h2>
+<p>This parameter is the gas pressure in Pa (Pascal). The default is atmospheric pressure</p>
+<pre><code class="language-matlab">opts.PRESSURE = 101325;</code></pre>
+<p><a class="param" href="input-parameters.html#pressure">PRESSURE</a> is used to compute the gas density in m<sup>−3</sup>, <code class="m">Ngas</code> (mentioned in the explanation of <a class="param" href="input-parameters.html#mu">MU</a>, <a class="param" href="input-parameters.html#d">D</a>, and <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a>), with the equation:</p>
+<div class="math-display">\[ N_{gas} = \frac{P}{k_B T} \]</div>
+<p>where \(k_B\) is the Boltzmann constant, \(P\) is the pressure in Pa, and \(T\) is the temperature in K.</p>
+<h2 class="param" id="electron-ref-coeff">ELECTRON_REF_COEFF</h2>
+<p>This parameter is the electron reflection coefficient that will be used in <code class="m">"GorinLike"</code> boundary conditions. The default is</p>
+<pre><code class="language-matlab">opts.ELECTRON_REF_COEFF = 0;</code></pre>
+<h2 class="param" id="gamma-ii">GAMMA_II</h2>
+<p>This parameter is the secondary electron emission coefficient that will be used in boundary conditions of type <code class="m">"GorinLike"</code>. The default is</p>
+<pre><code class="language-matlab">opts.GAMMA_II = 1e-2;</code></pre>
+<h2 class="param" id="surf-charge-coeff">SURF_CHARGE_COEFF</h2>
+<p>This parameter is a vector with three elements. It is used to set the dielectric interfaces accumulation coefficients \(K\), which can vary between 0 and 1. The vector contains three elements, independently from the total number of species in the simulation. The first element will be the accumulation coefficient for the electrons, the second element will be the accumulation coefficient for all positive ions, and the third element will be the accumulation coefficient for all negative ions. For example, by setting</p>
+<pre><code class="language-matlab">opts.SURF_CHARGE_COEFF = [0, 0.1, 1];</code></pre>
+<p>at dielectric interfaces no electrons will deposit their charge, only 10% of positive ions will deposit their charge, and the totality of negative ions will deposit their charge. The default for this parameter is</p>
+<pre><code class="language-matlab">opts.SURF_CHARGE_COEFF = [1, 1, 1];</code></pre>
+<h2 class="param" id="gamma-ii-diel">GAMMA_II_DIEL</h2>
+<p>This parameter is the secondary electron emission coefficient that will be used at dielectric interfaces. The default is</p>
+<pre><code class="language-matlab">opts.GAMMA_II_DIEL = 1e-2;</code></pre>
+<h2 class="param" id="ode-type">ODE_TYPE</h2>
+<p>This parameter is a string for selecting the solver used for time integration of the DAE system. The available options are:</p>
+<ul><li><code class="m">opts.ODE_TYPE = "ode15s";</code> (default)</li><li><code class="m">opts.ODE_TYPE = "idas";</code></li></ul>
+<p>When selecting <code class="m">"ode15s"</code>, the MATLAB-native <em>ode15s</em> routine is called to integrate the system. When selecting <code class="m">"idas"</code>, the <em>idas</em> solver from <a href="https://sundials.readthedocs.io/en/latest/index.html">Sundials</a> is called instead. The latter option has some disadvantage: <a class="param" href="input-parameters.html#output-function">OUTPUT_FUNCTION</a> will default to <code class="m">"none"</code> and no statistics from the solver will be available at the end of the simulation. On the other hand, it offers a significant reduction of the computational time, up to 50% in some cases.</p>
+<h2 class="param" id="open-gmsh">OPEN_GMSH</h2>
+<p>This parameter is a flag that allows the user to select if the computational mesh should appear before the simulation starts. By default, this flag is set to 1,</p>
+<pre><code class="language-matlab">opts.OPEN_GMSH = 1;</code></pre>
+<p>which means that before every simulation starts, a window showing the mesh will appear. The user can inspect the mesh, and <strong>only after closing</strong> this window, the simulation will effectively begin. In case multiple simulations have to be run in sequence, it is desirable to disable this function,</p>
+<pre><code class="language-matlab">opts.OPEN_GMSH = 0;</code></pre>
+<p>so that the simulations run one after the other, without the user needing to close the Gmsh window before the next simulation starts.</p>
+<h2 class="param" id="reordering">REORDERING</h2>
+<p>This parameter is a flag that, when set to 1,</p>
+<pre><code class="language-matlab">opts.REORDERING = 1;</code></pre>
+<p>allows the user to perform <a href="https://it.mathworks.com/help/matlab/ref/symrcm.html">symmetric reverse Cuthill-McKee</a> ordering of the jacobian matrix. This resulted in a speed-up of the computation in some cases. However, the reduction of the computational time was not particularly relevant in the tests performed so far. For this reason, the default for this parameter is</p>
+<pre><code class="language-matlab">opts.REORDERING = 0;</code></pre>
+<p>Setting this flag to 1 may result in greater improvement of the performance when considering larger meshes or a big number of chemical species.</p>
+<h2 class="param" id="output-function">OUTPUT_FUNCTION</h2>
+<p>This parameter is a string that allows the user to specify the output function. The available options are:</p>
+<ul><li><code class="m">opts.OUTPUT_FUNCTION = "bar";</code> (default)</li><li><code class="m">opts.OUTPUT_FUNCTION = "current";</code></li><li><code class="m">opts.OUTPUT_FUNCTION = "none";</code></li></ul>
+<p>When selecting <code class="m">"bar"</code>, a progress bar will appear, allowing the user to monitor the progress of the simulation. The option <code class="m">"current"</code> is for automatically stopping the simulation at steady-state in a DC discharge. When this option is selected, a plot of the current (computed integrating the current density over the external boundary that has identifier 1, see <a href="mesh-identifiers.html">Mesh identifiers</a>) in time will appear during the progress of the simulation. The parameters <a class="param" href="input-parameters.html#steady-state-threshold">STEADY_STATE_THRESHOLD</a> and <a class="param" href="input-parameters.html#t-start-steady-state">T_START_STEADY_STATE</a> are used to determine when the steady-state is reached. No output function is used when <code class="m">"none"</code> is selected.</p>
+<h2 class="param" id="bar-scale">BAR_SCALE</h2>
+<p>This parameter is used when <code class="m">"bar"</code> is selected as <a class="param" href="input-parameters.html#output-function">OUTPUT_FUNCTION</a>. The available options are:</p>
+<ul><li><code class="m">opts.BAR_SCALE = "lin";</code> (default)</li><li><code class="m">opts.BAR_SCALE = "log";</code></li></ul>
+<p>When selecting <code class="m">"lin"</code>, the scale on the progress bar will be linear, when selecting <code class="m">"log"</code> the scale on the progress bar will be logarithmic. The latter can be particularly useful when simulating a DC discharge trying to obtain the steady-state solution. When using the <code class="m">"log"</code> scale, the first time instant of the simulation should not be zero.</p>
+<h2 class="param" id="steady-state-threshold">STEADY_STATE_THRESHOLD</h2>
+<p>This parameter is the tolerance at which the steady-state condition is considered to be reached.</p>
+<pre><code class="language-matlab">opts.STEADY_STATE_THRESHOLD = 1e-3; % (default)</code></pre>
+<p>It is used when <code class="m">"current"</code> is selected as <a class="param" href="input-parameters.html#output-function">OUTPUT_FUNCTION</a>. When the relative difference (compared to the previous time step) of all the unknowns is less than the value specified in <a class="param" href="input-parameters.html#steady-state-threshold">STEADY_STATE_THRESHOLD</a>, Merlino2D stops the simulation, assuming steady-state was reached.</p>
+<h2 class="param" id="t-start-steady-state">T_START_STEADY_STATE</h2>
+<p>This parameter is the time at which the code starts looking for steady-state, using the value specified in <a class="param" href="input-parameters.html#steady-state-threshold">STEADY_STATE_THRESHOLD</a> as tolerance. It is used when <code class="m">"current"</code> is selected as <a class="param" href="input-parameters.html#output-function">OUTPUT_FUNCTION</a>. If you are running a DC discharge simulation, and you are reasonably sure that the steady-state will not be reached before 1 µs, it may be a good idea to let the code know that it should start checking for a steady-state condition only after this time.</p>
+<pre><code class="language-matlab">opts.T_START_STEADY_STATE = 1e-6;</code></pre>
+<p>The default value for this parameter is</p>
+<pre><code class="language-matlab">opts.T_START_STEADY_STATE = 0;</code></pre>
+<h2 class="param" id="abs-tol">ABS_TOL</h2>
+<p>This parameter is the absolute tolerance for the DAE solver. The default is</p>
+<pre><code class="language-matlab">opts.ABS_TOL = 1e-6;</code></pre>
+<h2 class="param" id="rel-tol">REL_TOL</h2>
+<p>This parameter is the relative tolerance for the DAE solver. The default is</p>
+<pre><code class="language-matlab">opts.REL_TOL = 1e-3;</code></pre>
+<h2 class="param" id="species-no-chem">SPECIES_NO_CHEM</h2>
+<p>This parameter is used when <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a> is set to <code class="m">"Off"</code>. <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a> must be a cell array containing the strings that identify the species that the user wants to consider for the simulation. The order in which the species appear is important in case a Gaussian distribution is used in <a class="param" href="input-parameters.html#initial-condition">INITIAL_CONDITION</a>. Note that all the species used must be defined inside the file <strong>species_database.csv</strong> contained in the <strong>data/</strong> folder.</p>
+<pre><code class="language-matlab">opts.SPECIES_NO_CHEM = {"N2+", "O2-", "O-", "N", "N2"};</code></pre>
+<div class="pager" id="pager"></div>
+<footer class="site">Merlino2D User Manual by Fabio Ragazzi. Source code: <a href="https://github.com/PTL-Unibo/Merlino2D">github.com/PTL-Unibo/Merlino2D</a></footer>
+</main>
+</div>
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/auto-render.min.js"></script>
+<script defer src="assets/site.js"></script>
+</body>
+</html>

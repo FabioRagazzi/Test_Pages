@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Species database · Merlino2D User Manual</title>
+<meta name="description" content="The species_database.csv file that lists every species used in a simulation.">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="species-database.html">
+<header class="topbar"><a href="index.html">Merlino2D</a><button id="menu-btn" type="button" aria-expanded="false" aria-controls="sidebar">Menu</button></header>
+<div class="layout">
+<aside id="sidebar" aria-label="Site navigation"><noscript><a href="index.html">Introduction</a></noscript></aside>
+<main id="content">
+<h1>Species database</h1>
+<p>All species used in a simulation—whether defined within the <code class="m">reactions</code> variable of the kinetic scheme specified by <a class="param" href="input-parameters.html#chemical-model">CHEMICAL_MODEL</a>, or listed in the <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a> input parameter—must be included in the <strong>species_database.csv</strong> file located in the <strong>data/</strong> folder. This file is a comma-separated values (CSV) file containing three columns.</p>
+<ul><li>The first column lists the names of the species. Every species name used in the <code class="m">reactions</code> variable or appearing in <a class="param" href="input-parameters.html#species-no-chem">SPECIES_NO_CHEM</a> must be present in this first column of <strong>species_database.csv</strong>.</li><li>The second column contains the mass of the species, expressed in kg.</li><li>The third column contains the charge of the species.</li></ul>
+<p>For example, the rows for electrons and for a neutral and an ionised nitrogen molecule have this shape (values here are illustrative; the <strong>data/species_database.csv</strong> file in the repository is the reference):</p>
+<pre class="console"><code class="language-console">e,9.1094e-31,-1
+N2,4.6518e-26,0
+N2+,4.6518e-26,1</code></pre>
+<p>New species that the user wants to consider in a simulation must be added here.</p>
+<div class="pager" id="pager"></div>
+<footer class="site">Merlino2D User Manual by Fabio Ragazzi. Source code: <a href="https://github.com/PTL-Unibo/Merlino2D">github.com/PTL-Unibo/Merlino2D</a></footer>
+</main>
+</div>
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/auto-render.min.js"></script>
+<script defer src="assets/site.js"></script>
+</body>
+</html>
