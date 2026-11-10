@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started · Tidewatch docs</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">Tidewatch</a>
+    <div class="version">Version 0.3.0 (demo)</div>
+    <input id="filter" class="filter" type="search" placeholder="Filter pages" aria-label="Filter pages">
+    <button id="menu-btn" class="menu-btn" type="button">Menu</button>
+    <nav><h4>Introduction</h4><ul><li class=""><a href="index.html">Overview</a></li><li class=""><a href="getting-started.html" aria-current="page">Getting started</a></li></ul><h4>Reference</h4><ul><li class=""><a href="api-reference.html">API reference</a></li><li class="sub"><a href="api-reference.html#scheduler">Scheduler</a></li><li class="sub"><a href="api-reference.html#task">task decorator</a></li><li class="sub"><a href="api-reference.html#errors">Errors</a></li></ul><h4>Project</h4><ul><li class=""><a href="changelog.html">Changelog</a></li></ul></nav>
+  </aside>
+  <main>
+
+<h1>Getting started</h1>
+<p class="lede">Install Tidewatch and run your first scheduled task in about two minutes.</p>
+
+<h2 id="install">Install</h2>
+<p>Tidewatch needs Python 3.9 or newer.</p>
+<pre><code class="language-bash">pip install tidewatch</code></pre>
+
+<h2 id="first-task">Write your first task</h2>
+<p>Create a file called <code>jobs.py</code>:</p>
+<pre><code class="language-python">from tidewatch import Scheduler, task
+
+@task(every="30s")
+def heartbeat():
+    print("still alive")
+
+if __name__ == "__main__":
+    s = Scheduler()
+    s.add(heartbeat)
+    s.run()</code></pre>
+<p>Then run it:</p>
+<pre><code class="language-bash">python jobs.py</code></pre>
+<p>You should see <code>still alive</code> printed every 30 seconds. Press <code>Ctrl+C</code> to stop.</p>
+
+<h2 id="cron">Use a cron schedule</h2>
+<p>For calendar-style schedules, pass <code>cron</code> instead of <code>every</code>:</p>
+<pre><code class="language-python">@task(cron="0 9 * * 1-5")   # 09:00, Monday to Friday
+def morning_report():
+    ...</code></pre>
+<p class="note">Pass either <code>every</code> or <code>cron</code>, not both. Tidewatch raises <code>ConfigError</code> if you pass both.</p>
+
+<h2 id="retries">Handle failures</h2>
+<pre><code class="language-python">@task(every="1h", retries=5, backoff=2.0)
+def flaky_api_call():
+    ...</code></pre>
+<p>With <code>backoff=2.0</code>, the wait doubles after each failed attempt: 1 s, 2 s, 4 s, and so on.</p>
+
+    <div class="pager"><a href="index.html">&larr; Overview</a><a href="api-reference.html">API reference &rarr;</a></div>
+  </main>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

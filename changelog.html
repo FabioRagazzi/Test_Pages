@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog · Tidewatch docs</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">Tidewatch</a>
+    <div class="version">Version 0.3.0 (demo)</div>
+    <input id="filter" class="filter" type="search" placeholder="Filter pages" aria-label="Filter pages">
+    <button id="menu-btn" class="menu-btn" type="button">Menu</button>
+    <nav><h4>Introduction</h4><ul><li class=""><a href="index.html">Overview</a></li><li class=""><a href="getting-started.html">Getting started</a></li></ul><h4>Reference</h4><ul><li class=""><a href="api-reference.html">API reference</a></li><li class="sub"><a href="api-reference.html#scheduler">Scheduler</a></li><li class="sub"><a href="api-reference.html#task">task decorator</a></li><li class="sub"><a href="api-reference.html#errors">Errors</a></li></ul><h4>Project</h4><ul><li class=""><a href="changelog.html" aria-current="page">Changelog</a></li></ul></nav>
+  </aside>
+  <main>
+
+<h1>Changelog</h1>
+<p class="lede">What changed in each release, newest first.</p>
+
+<h2 id="v0-3-0">0.3.0</h2>
+<ul>
+<li>Added <code>backoff</code> option to <code>@task</code>.</li>
+<li>Added <code>Scheduler.run(blocking=False)</code>.</li>
+<li>Fixed: cron schedules ignored the scheduler timezone.</li>
+</ul>
+
+<h2 id="v0-2-0">0.2.0</h2>
+<ul>
+<li>Added <code>cron</code> schedules.</li>
+<li>Added <code>retries</code> option.</li>
+</ul>
+
+<h2 id="v0-1-0">0.1.0</h2>
+<ul><li>First release: interval schedules only.</li></ul>
+
+    <div class="pager"><a href="api-reference.html">&larr; API reference</a><span></span></div>
+  </main>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

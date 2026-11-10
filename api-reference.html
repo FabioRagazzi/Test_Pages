@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API reference · Tidewatch docs</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">Tidewatch</a>
+    <div class="version">Version 0.3.0 (demo)</div>
+    <input id="filter" class="filter" type="search" placeholder="Filter pages" aria-label="Filter pages">
+    <button id="menu-btn" class="menu-btn" type="button">Menu</button>
+    <nav><h4>Introduction</h4><ul><li class=""><a href="index.html">Overview</a></li><li class=""><a href="getting-started.html">Getting started</a></li></ul><h4>Reference</h4><ul><li class=""><a href="api-reference.html" aria-current="page">API reference</a></li><li class="sub"><a href="api-reference.html#scheduler">Scheduler</a></li><li class="sub"><a href="api-reference.html#task">task decorator</a></li><li class="sub"><a href="api-reference.html#errors">Errors</a></li></ul><h4>Project</h4><ul><li class=""><a href="changelog.html">Changelog</a></li></ul></nav>
+  </aside>
+  <main>
+
+<h1>API reference</h1>
+<p class="lede">Everything the library exposes. In a real project, much of this page can be generated from docstrings.</p>
+
+<h2 id="scheduler">Scheduler</h2>
+<div class="sig">class Scheduler(timezone: str = "UTC")</div>
+<p>Holds a set of tasks and runs them.</p>
+<table>
+<tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+<tr><td><code>timezone</code></td><td><code>str</code></td><td>IANA timezone name used for cron schedules. Defaults to <code>"UTC"</code>.</td></tr>
+</table>
+
+<h3 id="scheduler-add">Scheduler.add</h3>
+<div class="sig">add(fn: Callable) -&gt; None</div>
+<p>Registers a function decorated with <code>@task</code>. Raises <code>ConfigError</code> if the function was not decorated.</p>
+
+<h3 id="scheduler-run">Scheduler.run</h3>
+<div class="sig">run(blocking: bool = True) -&gt; None</div>
+<p>Starts the scheduler. With <code>blocking=False</code>, it runs in a background thread and returns immediately.</p>
+
+<h2 id="task">task decorator</h2>
+<div class="sig">@task(every=None, cron=None, retries=0, backoff=1.0)</div>
+<table>
+<tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+<tr><td><code>every</code></td><td><code>str | None</code></td><td>Interval such as <code>"30s"</code>, <code>"15m"</code>, or <code>"2h"</code>.</td></tr>
+<tr><td><code>cron</code></td><td><code>str | None</code></td><td>Five-field cron expression.</td></tr>
+<tr><td><code>retries</code></td><td><code>int</code></td><td>How many times to retry after a failure. Default <code>0</code>.</td></tr>
+<tr><td><code>backoff</code></td><td><code>float</code></td><td>Multiplier applied to the wait between retries. Default <code>1.0</code>.</td></tr>
+</table>
+
+<h2 id="errors">Errors</h2>
+<table>
+<tr><th>Exception</th><th>Raised when</th></tr>
+<tr><td><code>ConfigError</code></td><td>A task has no schedule, has two schedules, or has an invalid schedule string.</td></tr>
+<tr><td><code>TaskFailed</code></td><td>A task still fails after all retries. Logged, and the scheduler keeps running.</td></tr>
+</table>
+
+    <div class="pager"><a href="getting-started.html">&larr; Getting started</a><a href="changelog.html">Changelog &rarr;</a></div>
+  </main>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

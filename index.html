@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Tidewatch docs</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">Tidewatch</a>
+    <div class="version">Version 0.3.0 (demo)</div>
+    <input id="filter" class="filter" type="search" placeholder="Filter pages" aria-label="Filter pages">
+    <button id="menu-btn" class="menu-btn" type="button">Menu</button>
+    <nav><h4>Introduction</h4><ul><li class=""><a href="index.html" aria-current="page">Overview</a></li><li class=""><a href="getting-started.html">Getting started</a></li></ul><h4>Reference</h4><ul><li class=""><a href="api-reference.html">API reference</a></li><li class="sub"><a href="api-reference.html#scheduler">Scheduler</a></li><li class="sub"><a href="api-reference.html#task">task decorator</a></li><li class="sub"><a href="api-reference.html#errors">Errors</a></li></ul><h4>Project</h4><ul><li class=""><a href="changelog.html">Changelog</a></li></ul></nav>
+  </aside>
+  <main>
+
+<h1>Tidewatch</h1>
+<p class="lede">Run Python functions on a schedule, with retries, in one small file of code. No broker, no daemon.</p>
+<p class="note"><strong>This is a demo site.</strong> Tidewatch is a fictional library. These pages exist so you can see how a docs site looks when it is hosted on GitHub Pages.</p>
+
+<h2 id="example">A first example</h2>
+<pre><code class="language-python">from tidewatch import Scheduler, task
+
+scheduler = Scheduler()
+
+@task(every="15m", retries=3)
+def sync_inventory():
+    print("Syncing inventory...")
+
+scheduler.add(sync_inventory)
+scheduler.run()</code></pre>
+<p>This runs <code>sync_inventory</code> every 15 minutes and retries up to three times if it raises an exception.</p>
+
+<h2 id="why">What you get</h2>
+<table>
+<tr><th>Feature</th><th>What it does</th></tr>
+<tr><td>Interval and cron schedules</td><td>Use <code>every="15m"</code> or <code>cron="0 9 * * 1-5"</code>.</td></tr>
+<tr><td>Automatic retries</td><td>Failed tasks retry with exponential backoff.</td></tr>
+<tr><td>Zero dependencies</td><td>Only the Python standard library.</td></tr>
+</table>
+
+<h2 id="next">Where to go next</h2>
+<ul>
+<li><a href="getting-started.html">Getting started</a> walks you through installing and running your first task.</li>
+<li><a href="api-reference.html">API reference</a> lists every class, function, and option.</li>
+</ul>
+
+    <div class="pager"><span></span><a href="getting-started.html">Getting started &rarr;</a></div>
+  </main>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>
